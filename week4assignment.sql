@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.30, for macos12 (x86_64)
 --
--- Host: localhost    Database: receiptsdb
+-- Host: localhost    Database: new_receibtdb
 -- ------------------------------------------------------
 -- Server version	5.7.32
 
@@ -28,10 +28,10 @@ CREATE TABLE `customerstbl` (
   `lastname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `customerdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `phonenumber` varchar(45) NOT NULL,
-  `mailingaddress` varchar(45) NOT NULL,
-  `shippingaddress` varchar(45) NOT NULL,
-  `loyaltynum` varchar(45) NOT NULL,
+  `phonenumber` char(13) NOT NULL,
+  `mailingaddress` varchar(100) NOT NULL,
+  `shippingaddress` varchar(100) NOT NULL,
+  `loyaltynum` char(8) NOT NULL,
   PRIMARY KEY (`customerid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -92,7 +92,7 @@ CREATE TABLE `receiptstbl` (
   KEY `customerfk` (`customerfk`),
   KEY `employeefk` (`employeefk`),
   CONSTRAINT `receiptscustomerfk` FOREIGN KEY (`customerfk`) REFERENCES `customerstbl` (`customerid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `receiptspersonfk` FOREIGN KEY (`employeefk`) REFERENCES `salespersonstbl` (`employeeid`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `receiptsemployeefk` FOREIGN KEY (`employeefk`) REFERENCES `salespersonstbl` (`employeeid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -174,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-18 20:58:28
+-- Dump completed on 2022-09-19 19:41:54
