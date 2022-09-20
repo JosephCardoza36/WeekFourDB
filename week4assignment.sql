@@ -28,7 +28,7 @@ CREATE TABLE `customerstbl` (
   `lastname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `customerdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `phonenumber` char(13) NOT NULL,
+  `phonenumber` char(14) NOT NULL,
   `mailingaddress` varchar(100) NOT NULL,
   `shippingaddress` varchar(100) NOT NULL,
   `loyaltynum` char(8) NOT NULL,
@@ -115,10 +115,10 @@ DROP TABLE IF EXISTS `salespersonstbl`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `salespersonstbl` (
   `employeeid` int(11) NOT NULL AUTO_INCREMENT,
-  `employeenum` varchar(45) NOT NULL,
+  `employeenum` char(8) NOT NULL,
   `empfirstname` varchar(45) NOT NULL,
   `emplastname` varchar(45) NOT NULL,
-  `department` char(10) NOT NULL,
+  `department` varchar(15) NOT NULL,
   `startdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `enddate` date NOT NULL,
   PRIMARY KEY (`employeeid`)
